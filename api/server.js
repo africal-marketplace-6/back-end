@@ -10,8 +10,8 @@ const server = express();
 
 const authRouter = require('../api/auth/auth-router');
 const usersRouter = require('../users/users_router.js')
-
-// const itemsRouter = require("../items/items-router.js")
+const categoryRouter = require('../category/category_router')
+const itemsRouter = require('../items/items_router')
 
 server.use(helmet());
 server.use(cors());
@@ -24,7 +24,9 @@ server.use(express.json());
 
 server.use('/api/auth', authRouter)
 server.use('/api/users', usersRouter)
-// server.use("/items", itemsRouter)
+server.use("/api/items", itemsRouter)
+server.use("/api/category", categoryRouter)
+
 
 server.get("/api", (req, res) => {
   res.json({ message: "Your API is up and running" });
