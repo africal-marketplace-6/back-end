@@ -4,9 +4,17 @@
   "description": "African Market Place",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon --require dotenv/config index.js",
-    "start": "node index.js"
+    "server": "nodemon index.js",
+    "start": "node index.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
+    "migrateh": "heroku run knex migrate:latest -a african-marketplace-6",
+    "rollbackh": "heroku run knex migrate:rollback -a african-marketplace-6",
+    "databaseh": "heroku pg:psql -a african-marketplace-6",
+    "seedh": "heroku run knex seed:run -a african-marketplace-6",
+    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand",
+    "deploy": "git push heroku main"
   },
   "repository": {
     "type": "git",
@@ -21,6 +29,7 @@
   "homepage": "https://github.com/africal-marketplace-6/back-end#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
@@ -29,6 +38,8 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.95.14",
     "nodemon": "^2.0.15",
-    "sqlite3": "^5.0.2"
+    "pg": "^8.5.1",
+    "sqlite3": "^5.0.2",
+    "supertest": "^6.1.6"
   }
 }
