@@ -42,5 +42,6 @@
     "pg": "^8.5.1",
     "sqlite3": "^5.0.2",
     "supertest": "^6.1.6"
-  }
+  },
+  "devDependencies": {}
 }
