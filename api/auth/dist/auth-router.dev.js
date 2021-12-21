@@ -22,33 +22,7 @@ router.post("/register", function (req, res, next) {
       return next(err);
     });
   });
-}); //   router.post('/login', (req, res, next) => {
-//     db('users')
-//     .where({email: req.body.email})
-//         .first()
-//         .then(user => {
-//            if(!user){
-//               res.status(401).json({
-//                  error: "No user by that email"
-//               })
-//            }else{
-//               return bcrypt
-//               .compare(req.body.password, user.password)
-//               .then(isAuthenticated => {
-//                  if(!isAuthenticated){
-//                     res.status(401).json({
-//                        error: "Unauthorized Access!"
-//                     })
-//                  }else{
-//                   return jwt.sign(user, SECRET, (error, token) => {
-//                     res.status(200).json({ message: `Welcome ${user.username}!`, token })
-//                  })
-//                 }
-//               })
-//            }
-//         })
-//   });
-
+});
 router.post('/login', function (req, res) {
   var _req$body = req.body,
       email = _req$body.email,
