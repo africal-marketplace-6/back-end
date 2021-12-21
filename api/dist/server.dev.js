@@ -14,7 +14,7 @@ var session = require("express-session");
 
 var server = express();
 
-var authRouter = require('../users/users_router');
+var authRouter = require('../api/auth/auth-router');
 
 var usersRouter = require('../users/users_router.js'); // const itemsRouter = require("../items/items-router.js")
 

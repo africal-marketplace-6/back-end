@@ -33,5 +33,5 @@ exports.up = function _callee(knex) {
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTableIfExists('category').dropTableIfExists('items').dropTableIfExists('users');
+  return knex.schema.dropTableIfExists('items').dropTableIfExists('category').dropTableIfExists('users');
 };

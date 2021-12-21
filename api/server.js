@@ -8,7 +8,7 @@ const session = require("express-session")
 
 const server = express();
 
-const authRouter = require('../users/users_router');
+const authRouter = require('../api/auth/auth-router');
 const usersRouter = require('../users/users_router.js')
 
 // const itemsRouter = require("../items/items-router.js")

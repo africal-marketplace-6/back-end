@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const Users = require('./users_model')
 
-//const authenticate = require('../auth/authenticate-middleware')
+const auth = require('../api/auth/auth-middleware')
 
 
 router.get('/', (req, res) => {
@@ -14,5 +14,15 @@ router.get('/', (req, res) => {
     });
   });
 
+  router.get('/:id', auth, (req,res)=>{
+    Users.findById(req.params.id)
+    .then(user=>{
+        res.status(200).json(user)
+    })
+    .catch(err=>{
+        console.log(err)
+        res.status(500).json({message: 'failed to get user'})
+    })
+})
 
   module.exports = router 

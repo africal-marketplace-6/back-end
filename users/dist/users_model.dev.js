@@ -19,7 +19,7 @@ function findBy(filter) {
 }
 
 function findById(user_id) {
-  return db('users').select('user_id', 'username').where({
+  return db('users').select('user_id', 'username', 'email').where({
     user_id: user_id
   }).first();
 }
